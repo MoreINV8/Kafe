@@ -1,3 +1,7 @@
+/**
+ * @author 6510450305 Chaiyapat
+ */
+
 package ku.cs.cafe.entity;
 
 import jakarta.persistence.Column;
