@@ -21,10 +21,26 @@
         <li class="nav-item">
           <a class="nav-link" th:href="@{/}">Home</a>
         </li>
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+          <a class="nav-link" th:href="@{/menus}">Menu</a>
+        </li>
+        <li class="nav-item" sec:authorize="isAuthenticated() and hasRole('ROLE_ADMIN')">
+          <a class="nav-link" th:href="@{/menus/add}">Add Menu</a>
+        </li>
+        <li class="nav-item" sec:authorize="isAuthenticated() and hasRole('ROLE_ADMIN')">
+          <a class="nav-link" th:href="@{/categories/add}">Add Category</a>
+        </li>
+        <li class="nav-item"
+            sec:authorize="isAuthenticated() and hasRole('ROLE_ADMIN')">
+          <a class="nav-link" th:href="@{/admin/orders}">All Orders</a>
+        </li>
       </ul>
     </div>
     <div sec:authorize="isAuthenticated()">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/orders}">Cart</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">สวัสดี <b><span sec:authentication="name"></span></b></a>
         </li>
@@ -35,8 +51,11 @@
     </div>
     <div sec:authorize="isAnonymous()">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item px-1">
           <a class="btn btn-primary" th:href="@{/login}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary" th:href="@{/signup}">Signup</a>
         </li>
       </ul>
     </div>

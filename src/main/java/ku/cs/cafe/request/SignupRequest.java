@@ -13,7 +13,7 @@ public class SignupRequest {
     private String name;
 
     @NotBlank
-    @Size(min=8, max=128, message = "Password must have at least 8 characters")
+    @Size(min=4, max=128, message = "Password must have at least 8 characters")
     private String username;
 
     @ValidPassword
